@@ -29,18 +29,20 @@ public class EmailApp {
     private String getDepartment() throws Exception {
 
         Scanner dept = new Scanner(System.in);
-        System.out.println("Department Codes:\n 1=Sales\n 2=Developer\n 3=Accountant\n 4=HR\n Enter Department Code:");
+        System.out.print("Department Codes:\n 1=Sales\n 2=Developer\n 3=Accountant\n 4=HR\n Enter Department Code:");
         int number = dept.nextInt();
-        if (number == 1)
-            return "Sales";
-        else if (number == 2)
-            return "Dev";
-        else if (number == 3)
-            return "Acct";
-        else if (number == 4)
-            return "HR";
-        throw new Exception(" Out of range");
-
+        switch (number) {
+            case 1:
+                return "Sales";
+            case 2:
+                return "Dev";
+            case 3:
+                return "Acct";
+            case 4:
+                return "HR";
+            default:
+            throw new Exception(" Out of range");
+        }
     }
 
     //Generate random password
@@ -84,7 +86,7 @@ public class EmailApp {
     //Final info
     public String getInfo() {
         return "Display New Employee:\n" + firstName.toUpperCase() + " " + lastName.toUpperCase() +
-                "\nEmail:" + email + "\nEmail Capacity: " + emailMaxCapacity + "mb" + "\n" + "Your password is:" + password;
+                "\nEmail:" + email + "\nEmail Capacity: " + emailMaxCapacity + "mb" + "\n" + "Password is:" + password;
     }
 
 }
